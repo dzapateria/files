@@ -1,0 +1,25 @@
+# ----- ACTIVATE REWRITE MOD -----
+RewriteEngine On
+
+#------- REDIRECCIÓN HTTPS Y WWW A NO WWW -----------------------
+
+# ----  to non-www in LOCALHOST
+RewriteCond %{HTTPS} off
+RewriteCond %{HTTP_HOST} ^www\.(.*)$ [NC]
+RewriteRule ^(.*)$ http://%1/$1 [R=301,L]
+# ---- to non-www in PRODUCTION
+RewriteCond %{HTTPS} on
+RewriteCond %{HTTP_HOST} ^www\.(.*)$ [NC]
+RewriteRule ^(.*)$ https://%1/$1 [R=301,L]
+
+#------- REDIRECT TO HTTPS ONLY IN .COM PRODUCTION DOMAIN
+RewriteCond %{HTTP_HOST} ^(.*)\.com$ [NC]
+RewriteCond %{HTTPS} !on
+RewriteRule (.*) https://%{HTTP_HOST}%{REQUEST_URI} [R=301,L]
+
+# ------ FRONT CONTROLLER -----
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteCond %{REQUEST_FILENAME} !-f
+
+# ------ URI in GET -----
+RewriteRule ^(.*)$ /?url=$1 [QSA]

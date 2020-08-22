@@ -1,0 +1,40 @@
+/*
+ * Custom code goes here.
+ * A template should always ship with an empty custom.css
+ */
+
+@media (min-width: 1200px){
+	.container {
+		width: 960px;
+		max-width: 100%;
+	}
+}
+
+.carousel .carousel-inner {
+    height: auto;
+}
+
+#products .thumbnail-container, .featured-products .thumbnail-container, .product-accessories .thumbnail-container, .product-miniature .thumbnail-container {
+    width: 284px;
+	height: 352px;
+}
+
+#products .product-description, .featured-products .product-description, .product-accessories .product-description, .product-miniature .product-description {
+    width: 284px;
+}
+
+#products .highlighted-informations, .featured-products .highlighted-informations, .product-accessories .highlighted-informations, .product-miniature .highlighted-informations {
+    width: 284px;
+}
+
+#products .thumbnail-container .product-thumbnail img, .featured-products .thumbnail-container .product-thumbnail img, .product-accessories .thumbnail-container .product-thumbnail img, .product-miniature .thumbnail-container .product-thumbnail img {
+    width: 95%;
+}
+
+/*
+@media (min-width: 768px){
+	#_desktop_logo{
+		width: 60%;
+	}
+}
+*/
